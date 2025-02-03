@@ -2,7 +2,7 @@ package edgedbtest_test
 
 import (
 	"context"
-	"edgedbtest"
+	"github.com/ibrhmkoz/edgedbtest"
 	"testing"
 )
 

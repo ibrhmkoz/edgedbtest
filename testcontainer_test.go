@@ -2,8 +2,8 @@ package edgedbtest_test
 
 import (
 	"context"
-	"edgedbtest"
 	"fmt"
+	"github.com/ibrhmkoz/edgedbtest"
 	"github.com/testcontainers/testcontainers-go"
 	"log"
 )

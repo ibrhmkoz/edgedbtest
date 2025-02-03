@@ -1,4 +1,4 @@
-module edgedbtest
+module github.com/ibrhmkoz/edgedbtest
 
 go 1.23
 
