@@ -26,14 +26,17 @@ func TestSelectFromCustomType(t *testing.T) {
 	client := edgedbtest.New(t, ctx)
 
 	var result struct {
-		Name string
-		Age  int
+		Name string `edgedb:"name"`
+		Age  int32  `edgedb:"age"`
 	}
 
 	err := client.QuerySingle(ctx, `
-		insert User {
+		with user := (insert User {
 		  name := "John Doe",
 		  age  := 25
+		}), select user {
+		  name,
+		  age
 		};
 	`, &result)
 
