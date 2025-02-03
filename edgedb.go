@@ -11,10 +11,12 @@ func New(t *testing.T, ctx context.Context) *edgedb.Client {
 	if err != nil {
 		return nil
 	}
+
 	dsn, err := container.DSN(ctx)
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	options := edgedb.Options{
 		TLSOptions: edgedb.TLSOptions{
 			SecurityMode: edgedb.TLSModeInsecure,
@@ -25,5 +27,9 @@ func New(t *testing.T, ctx context.Context) *edgedb.Client {
 		t.Fatal(err)
 	}
 
+	err = client.EnsureConnected(ctx)
+	if err != nil {
+		t.Fatal(err)
+	}
 	return client
 }
